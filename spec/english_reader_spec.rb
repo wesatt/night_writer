@@ -15,4 +15,16 @@ RSpec.describe EnglishReader do
     expect(ereader.translate).to eq("0.\n..\n..")
     expect(ereader.translate_line(["a"])).to eq("0.\n..\n..")
   end
+
+  describe "file creation" do
+    include FakeFS::SpecHelpers
+    it "can create and write to a file with text translated to Braille" do
+      FakeFS do
+        ereader = EnglishReader.new(["a"])
+        ereader.file_write("braille.txt")
+        expect(File).to exist("braille.txt")
+        expect(File.read("braille.txt")).to eq("0.\n..\n..")
+      end
+    end
+  end
 end
