@@ -1,4 +1,8 @@
+require_relative "./character_translator"
+
 class EnglishReader
+  include CharacterTranslator
+
   attr_reader :txt_input
 
   def initialize(txt_input)
