@@ -34,4 +34,9 @@ class EnglishReader
     lines = [line1, line2, line3]
     lines.join("\n")
   end
+
+  def file_write(path)
+    File.write(path, translate)
+    puts "Created '#{path}' containing #{@txt_input.count} characters"
+  end
 end
