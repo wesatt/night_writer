@@ -13,5 +13,6 @@ RSpec.describe EnglishReader do
 
   it "can translate Braille line by line" do
     expect(ereader.translate).to eq("0.\n..\n..")
+    expect(ereader.translate_line(["a"])).to eq("0.\n..\n..")
   end
 end
