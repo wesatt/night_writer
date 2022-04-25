@@ -27,4 +27,18 @@ RSpec.describe EnglishReader do
       end
     end
   end
+
+  it "will print any charcater over 40 (80 in braille) on the next line" do
+    string = "a" * 40 + "b" * 40
+    ereader = EnglishReader.new([string])
+    expect = (
+      "0." * 40 + "\n" +
+      ".." * 40 + "\n" +
+      ".." * 40 + "\n" +
+      "0." * 40 + "\n" +
+      "0." * 40 + "\n" +
+      ".." * 40
+    )
+    expect(ereader.translate).to eq(expect)
+  end
 end
