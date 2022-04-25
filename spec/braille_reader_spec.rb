@@ -29,7 +29,7 @@ RSpec.describe BrailleReader do
   end
 
   it "will detect unknown Braille patterns" do
-    expect(breader.translate_line([["00", "00", "00"]])).to eq(" ")
+    expect(breader.translate_line([["..", ".0", ".."]])).to eq(" \n")
     # expect { breader.translate_line([["00", "00", "00"]]) }.to raise_error(RuntimeError, "An unknown Braille pattern was encountered:'[\"00\", \"00\", \"00\"]'")
   end
 end

@@ -71,7 +71,9 @@ module CharacterTranslator
 
   def braille_lookup(braille)
     if BRAILLE_TO_ASCII[braille].nil?
-      raise "An unknown Braille pattern was encountered:'#{braille}'"
+      puts "An unknown Braille pattern was encountered:"
+      puts "Replaced '#{braille}' with '[\"..\", \"..\", \"..\"]' and continued processing."
+      " "
     else
       BRAILLE_TO_ASCII[braille]
     end
