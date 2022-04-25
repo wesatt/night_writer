@@ -41,4 +41,8 @@ RSpec.describe EnglishReader do
     )
     expect(ereader.translate).to eq(expect)
   end
+
+  it "will detect unknown characters" do
+    expect { ereader.translate_line(["!"]) }.to raise_error(RuntimeError, "An unknown character was encountered:'!'")
+  end
 end
