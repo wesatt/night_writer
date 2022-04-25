@@ -61,7 +61,9 @@ module CharacterTranslator
 
   def char_lookup(char)
     if ASCII_TO_BRAILLE[char].nil?
-      raise "An unknown character was encountered:'#{char}'"
+      puts "An unknown character was encountered:"
+      puts "Replaced '#{char}' with ' ' and continued processing."
+      ["..", "..", ".."]
     else
       ASCII_TO_BRAILLE[char]
     end
