@@ -60,10 +60,18 @@ module CharacterTranslator
   }
 
   def char_lookup(char)
-    ASCII_TO_BRAILLE[char]
+    if ASCII_TO_BRAILLE[char].nil?
+      raise "An unknown character was encountered:'#{char}'"
+    else
+      ASCII_TO_BRAILLE[char]
+    end
   end
 
   def braille_lookup(braille)
-    BRAILLE_TO_ASCII[braille]
+    if BRAILLE_TO_ASCII[braille].nil?
+      raise "An unknown Braille pattern was encountered:'#{braille}'"
+    else
+      BRAILLE_TO_ASCII[braille]
+    end
   end
 end
