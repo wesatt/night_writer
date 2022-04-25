@@ -34,4 +34,10 @@ class BrailleReader
     end
     line.join + "\n"
   end
+
+  def file_write(path)
+    File.write(path, translate)
+    char_count = translate.delete("\n").chars.count
+    puts "Created '#{path}' containing #{char_count} characters"
+  end
 end
