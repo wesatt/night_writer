@@ -62,4 +62,8 @@ module CharacterTranslator
   def char_lookup(char)
     ASCII_TO_BRAILLE[char]
   end
+
+  def braille_lookup(braille)
+    BRAILLE_TO_ASCII[braille]
+  end
 end
