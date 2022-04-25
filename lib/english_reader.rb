@@ -15,8 +15,10 @@ class EnglishReader
 
   def translate
     total_braille = []
-    @txt_input[0].chars.each_slice(40) do |line|
-      total_braille << translate_line(line)
+    @txt_input.each do |input_element|
+      input_element.chars.each_slice(40) do |line|
+        total_braille << translate_line(line)
+      end
     end
     total_braille.join("\n")
   end
@@ -37,6 +39,7 @@ class EnglishReader
 
   def file_write(path)
     File.write(path, translate)
-    puts "Created '#{path}' containing #{@txt_input.count} characters"
+    char_count = @txt_input.join.chars.count
+    puts "Created '#{path}' containing #{char_count} characters"
   end
 end
