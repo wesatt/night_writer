@@ -15,4 +15,16 @@ RSpec.describe BrailleReader do
     expect(breader.translate).to eq("a\n")
     expect(breader.translate_line([["0.", "..", ".."]])).to eq("a\n")
   end
+
+  describe "file creation" do
+    include FakeFS::SpecHelpers
+    it "can create and write to a file with text translated to Braille" do
+      FakeFS do
+        ereader = BrailleReader.new(["0.", "..", ".."])
+        ereader.file_write("original_message.txt")
+        expect(File).to exist("original_message.txt")
+        expect(File.read("original_message.txt")).to eq("a")
+      end
+    end
+  end
 end
