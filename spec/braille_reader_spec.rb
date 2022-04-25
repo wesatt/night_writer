@@ -8,6 +8,12 @@ RSpec.describe BrailleReader do
   end
 
   it "can read braile files" do
-    expect(ereader.braille_input).to eq(["0.", "..", ".."])
+    expect(breader.braille_input).to eq(["0.", "..", ".."])
+  end
+
+  it "can translate Braille into english characters line by line" do
+    expect(breader.translate).to eq("aa")
+    # FIX: this test below may need to be updated
+    expect(breader.translate_line([["0.", "n..", ".."], ["0.", "n..", ".."]])).to eq("aa")
   end
 end

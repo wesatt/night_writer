@@ -11,7 +11,7 @@ RSpec.describe EnglishReader do
     expect(ereader.txt_input).to eq(["a"])
   end
 
-  it "can translate Braille line by line" do
+  it "can translate english characters into Braille line by line" do
     expect(ereader.translate).to eq("0.\n..\n..")
     expect(ereader.translate_line(["a"])).to eq("0.\n..\n..")
   end
@@ -28,7 +28,7 @@ RSpec.describe EnglishReader do
     end
   end
 
-  it "will print any charcater over 40 (80 in braille) on the next line" do
+  it "will print any character over count:40 (80 in braille) on the next line" do
     string = "a" * 40 + "b" * 40
     ereader = EnglishReader.new([string])
     expect = (
