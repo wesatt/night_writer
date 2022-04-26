@@ -9,8 +9,8 @@ class BrailleReader
     @braille_input = braille_input
   end
 
-  def self.read_braille(braille_input)
-    BrailleReader.new(File.readlines(braille_input, chomp: true))
+  def self.read_braille(braille_path)
+    BrailleReader.new(File.readlines(braille_path, chomp: true))
   end
 
   def translate
