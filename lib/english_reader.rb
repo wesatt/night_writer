@@ -9,8 +9,8 @@ class EnglishReader
     @txt_input = txt_input
   end
 
-  def self.read_txt(txt_input)
-    EnglishReader.new(File.readlines(txt_input, chomp: true))
+  def self.read_txt(english_path)
+    EnglishReader.new(File.readlines(english_path, chomp: true))
   end
 
   def translate
